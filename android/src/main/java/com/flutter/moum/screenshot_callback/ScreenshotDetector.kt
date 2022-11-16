@@ -13,6 +13,7 @@ class ScreenshotDetector(private val context: Context,
                          private val callback: (name: String) -> Unit) {
 
     private var contentObserver: ContentObserver? = null
+    private var pathsMap = LinkedHashMap<String, Boolean>()
 
     fun start() {
         if (contentObserver == null) {
@@ -26,9 +27,11 @@ class ScreenshotDetector(private val context: Context,
     }
 
     private fun reportScreenshotsUpdate(uri: Uri) {
-        val screenshots: List<String> = queryScreenshots(uri)
-        if (screenshots.isNotEmpty()) {
-            callback.invoke(screenshots.last());
+        val string = uri.toString().replace(Regex("""\?.*"""), "")
+
+        if (!pathsMap.containsKey(string)) {
+            pathsMap[string] = true
+            callback.invoke("");
         }
     }
 

@@ -32,6 +32,7 @@ Podfile.lock
 
 # Visual Studio Code related
 .vscode/
+.fvm/
 
 # Flutter repo-specific
 /bin/cache/
