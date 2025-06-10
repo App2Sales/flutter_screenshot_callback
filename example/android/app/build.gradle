@@ -25,7 +25,9 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
+    namespace = "com.flutter.moum.screenshot_callback_example"
+
+    compileSdkVersion 35
 
     lintOptions {
         disable 'InvalidPackage'
@@ -35,7 +37,7 @@ android {
         multiDexEnabled true
         applicationId "com.flutter.moum.screenshot_callback_example"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
